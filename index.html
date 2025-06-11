@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá, mundo!</title>
-</head>
-<body>
-    <h1>Olá, mundo!</h1>
-    <p>Primeiro commit do projeto do codelabsson</p>
-</body>
+<html>
+    <head>
+        <title>To do list dos cria</title>
+        <link rel="stylesheet" type="text/css" href="projeto.css">
+    </head>
+    <body>
+        <header>
+            <h1 id="title">To-do List</h1>
+        </header>
+        <main>
+
+        <div id="cabecalho">
+            <h2 id="nomeDaLista">Minhas tarefas:</h2>
+            <button id="login" onclick>Login</button>
+            <button id="modo" onclick>🔆</button>
+        </div>
+
+        <div id="inputBox">
+            <form id="novaTarefa">
+            <input 
+            type="text"
+            id="tarefa"
+            placeholder="Adicione uma tarefa..."/>
+            <input type="date" id="data"/>
+            <button type="submit" id="botaoAdiciona">+ Adicionar</button>
+            </form>
+        </div>
+
+        <ul id="lista">
+            <li>
+                <input type="checkbox" id="checkbox"/>
+                <p>testando</p>
+            </li>
+        </ul>
+
+        </main>
+    </body>
 </html>

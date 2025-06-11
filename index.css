@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: stretch;
+
+    font-family: 'Inter', sans-serif;
+    background-color: #0c111b;
+    color: #b2b2b2;
+}
+
+#cabecalho {
+    display: flex;
+}
+
+#inputBox {
+    background-color: #161d26;
+    padding: 10%;
+    border-radius: 7px;
+    border: 1px solid #262d39;
+}
+
+#login {
+    background-color: #161d26;
+    color: #b2b2b2;
+    border-radius: 7px;
+    border: 1px solid #262d39;
+}
+
+#modo {
+    background-color: #161d26;
+    color: #b2b2b2;
+    border-radius: 7px;
+    border: 1px solid #262d39;
+}
+
+#tarefa {
+    background-color: #161d26;
+    color: #6d727a; /* NÃO TÁ MUDANDO A COR DO PLACEHOLDER */
+    border: 0;
+}
+
+#data {
+    background-color: #161d26;
+    color: #6d727a;
+    border: 0;
+}
+
+#botaoAdiciona {
+    background-color: #047f94;
+    color: #b2b2b2;
+    border: 0;
+    border-radius: 7px;
+    padding: 2%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    background-color: #161d26;
+    color: #b2b2b2;
+    border-radius: 7px;
+    border: 1px solid #262d39;
+}

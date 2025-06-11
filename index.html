@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>To do list dos cria</title>
-        <link rel="stylesheet" type="text/css" href="projeto.css">
+        <link rel="stylesheet" type="text/css" href="index.css">
     </head>
     <body>
         <header>
@@ -12,28 +12,26 @@
 
         <div id="cabecalho">
             <h2 id="nomeDaLista">Minhas tarefas:</h2>
-            <button id="login" onclick>Login</button>
-            <button id="modo" onclick>🔆</button>
+            <button id="login">Login</button>
+            <button id="modo">🔆</button>
         </div>
 
         <div id="inputBox">
             <form id="novaTarefa">
-            <input 
-            type="text"
-            id="tarefa"
-            placeholder="Adicione uma tarefa..."/>
+            <input  type="text" id="tarefa" placeholder="Adicione uma tarefa..."/>
             <input type="date" id="data"/>
-            <button type="submit" id="botaoAdiciona">+ Adicionar</button>
+            <button type="button" id="botaoAdiciona">+ Adicionar</button>
             </form>
         </div>
 
         <ul id="lista">
             <li>
-                <input type="checkbox" id="checkbox"/>
+                <input type="checkbox"/>
                 <p>testando</p>
             </li>
         </ul>
 
         </main>
+        <script src="script.js"></script>
     </body>
 </html>

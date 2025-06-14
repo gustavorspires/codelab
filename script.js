@@ -141,6 +141,7 @@ function AddTask(taskDescription, dueDateValue){
     //reseta os inputs
     taskInput.value = '';
     DueDateInput.value = '';
+    addTaskButton.disabled = true;
 };
 
 

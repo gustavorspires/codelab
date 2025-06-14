@@ -1,77 +1,143 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: stretch;
 
     font-family: 'Inter', sans-serif;
-    background-color: #0c111b;
-    color: #b2b2b2;
+    background-color: #aeafaf;
+    color: #0c111b;
 
     /*Kenzo adicionou isso (para mudar de modo escuro para claro)*/
     transition: background 0.2s linear;
 }
 /*To-do list CSS --------------------------------------------------------*/
-#cabecalho {
+.container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#inputBox {
-    background-color: #161d26;
-    padding: 10%;
+.container > * {
+    width: 100%;
+    max-width: 90vw;
+    box-sizing: border-box;
+    margin-right: 0;
+}
+
+#cabecalho {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    column-gap: 2%;
+}
+
+#novaTarefa {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr;
+    column-gap: 1rem;
+    padding: 1.1rem;
+    max-width: 90vw;
+    width: 100%;
+    
+    background-color: #b2b2b2;
     border-radius: 7px;
-    border: 1px solid #262d39;
+    border: 1px solid #a0a1a4;
+    margin-top: 2%;
 }
 
 #login {
-    background-color: #161d26;
-    color: #b2b2b2;
+    background-color: #b2b2b2;
+    color: #0c111b;
     border-radius: 7px;
-    border: 1px solid #262d39;
+    border: 1px solid #a0a1a4;
 }
 
 #modo {
-    background-color: #161d26;
-    color: #b2b2b2;
+    background-color: #b2b2b2;
+    color: #0c111b;
     border-radius: 7px;
-    border: 1px solid #262d39;
+    border: 1px solid #a0a1a4;
+}
+
+#modo::before {
+    content: "\01F319"; /* unicode do emoji de sol */
+    font-size: 1.5rem;;
 }
 
 #tarefa {
-    background-color: #161d26;
+    margin: 5%;
+    background-color: #b2b2b2;
     border: 0;
+    font-size: medium;
 }
 
-#tarefa::placeholder{
-    color: #6d727a;
+#tarefa::placeholder {
+    color: #161d26;
 }
 
 #data {
-    background-color: #161d26;
-    color: #6d727a;
+    background-color: #b2b2b2;
+    color: #161d26;
     border: 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
 }
 
 #botaoAdiciona {
     background-color: #047f94;
-    color: #b2b2b2;
+    color: #dbdada;
     border: 0;
     border-radius: 7px;
     padding: 2%;
+    cursor: pointer;
+    opacity: 1;
+}
+
+#botaoAdiciona:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #047e947e;
+    color: #b7b5b5;
 }
 
 ul {
     list-style-type: none;
+    padding-left: 0;
 }
 
 li {
-    display: flex;
-    background-color: #161d26;
-    color: #b2b2b2;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr;
+    column-gap: 1rem;
+    margin-top: 2%;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+
+    background-color: #b2b2b2;
+    color: #161d26;
     border-radius: 7px;
-    border: 1px solid #262d39;
+    border: 1px solid #047f94;
+}
+
+#taskContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 10px;
+    max-width: 100%;
+    margin: 10px;
+}
+
+#taskContainer p {
+    margin: 0;
+    line-height: 1.2;
 }
 
 /*Esses ids sao os elementos criados pelo javascript para criar a tarefa:
@@ -86,13 +152,46 @@ li {
 
 #taskDelete (botao de deletar a tarefa)
 */
+#taskDateInput {
+    background-color: #b2b2b2;
+    color: #b2b2b2;
+    border: 0;
+}
+
+#taskDate {
+    font-size: 80%;
+}
+
+#taskDelete {
+    color: #b2b2b2;
+    background-color: #bc2020;
+
+    margin: 10%;
+    height: 100%;
+    max-height: 50%;
+    border: 0;
+    border-radius: 5px;
+}
+
+
+input[type="checkbox"] {
+    accent-color: #047f94;
+
+    transform: scale(1.5);
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + #taskContainer #taskText, input[type="checkbox"]:checked + #taskContainer #taskDate {
+    text-decoration: line-through;
+    color: #6d727a;
+}
 
 /*Sign In Page CSS -----------------------------------------------------*/
 
 
 
 /*Sign Up Page CSS -----------------------------------------------------*/
-
 
 
 
@@ -105,9 +204,14 @@ body.dark-mode {
     color: #b2b2b2;
 }
 
-body.dark-mode #inputBox{
-    color: #161d26;
+body.dark-mode #novaTarefa {
+    background-color: #161d26;
     border: 1px solid #262d39;
+}
+
+body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) saturate(100%) invert(49%) sepia(8%) saturate(239%) hue-rotate(175deg) brightness(96%) contrast(87%); /*mudar a cor do ícone do calendário para #6d727a*/
+  cursor: pointer;
 }
 
 body.dark-mode #login {
@@ -120,6 +224,11 @@ body.dark-mode #modo {
     background-color: #161d26;
     color: #b2b2b2;
     border: 1px solid #262d39;
+}
+
+body.dark-mode #modo::before {
+    content: "\2600"; /*unicode do emoji de sol*/
+    color: #f2b016;
 }
 
 body.dark-mode #tarefa {
@@ -136,9 +245,15 @@ body.dark-mode #data {
     color: #6d727a;
 }
 
+body.dark-mode #taskDateInput {
+    background-color: #161d26;
+    color: #161d26;
+    border: 0;
+}
+
 body.dark-mode #botaoAdiciona {
     background-color: #047f94;
-    color: #b2b2b2;
+    color: #dbdada;
 }
 
 body.dark-mode li {

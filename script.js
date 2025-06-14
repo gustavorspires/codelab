@@ -18,6 +18,7 @@ const tasklist = document.getElementById("lista");
 
 //botoes do html
 const addTaskButton = document.getElementById("botaoAdiciona");
+addTaskButton.disabled = true;
 const signInButton = document.getElementById("login");
 const themeModeButton = document.getElementById("modo");
 
@@ -37,8 +38,9 @@ if(addTaskButton){
     addTaskButton.addEventListener("click", function() {
         let taskDescription = taskInput.value;
         let dueDateValue = DueDateInput.value;
-        
-        AddTask(taskDescription, dueDateValue);
+        if(taskDescription !== ""){
+            AddTask(taskDescription, dueDateValue);
+        }
     });
 }
 
@@ -54,6 +56,15 @@ if(themeModeButton){
     });
 }
 
+taskInput.addEventListener("input", function() {
+    if(taskInput.value !== ''){
+        addTaskButton.disabled = false;
+    }
+    else{
+        addTaskButton.disabled = true;
+    }
+});
+
 //Sign in Buttons ------------------------------------------
 
 
@@ -61,6 +72,14 @@ if(themeModeButton){
 
 
 //Funcoes dos botoes:
+function FormatarData(dataValue){
+    const partes = dataValue.split('-');  //divide em [ano, mes, dia]
+    if (partes.length === 3) {
+        return `Prazo: ${partes[2]}/${partes[1]}/${partes[0]}`;
+    }
+    return dataValue; //caso o valor seja NULL
+};
+
 function AddTask(taskDescription, dueDateValue){
     //cria as variaveis dos elementos a serem criados
     const listItem = document.createElement("li");
@@ -75,6 +94,7 @@ function AddTask(taskDescription, dueDateValue){
     deleteButton.id = "taskDelete";
     const changeDate = document.createElement("input"); //Ainda vou implementar melhor para que possa mudar de data!!!
     changeDate.type = "date";
+    changeDate.id = "taskDateInput";
     
     //coloca valor ao texto
     taskText.textContent = taskDescription; 
@@ -86,16 +106,28 @@ function AddTask(taskDescription, dueDateValue){
     });
     
     //adiciona a data se for informada
+    let dueDate;
+
     if(dueDateValue !== ''){
-        const dueDate = document.createElement("p");
+        dueDate = document.createElement("p");
         dueDate.id = "taskDate";
-        dueDate.textContent = dueDateValue;
+        dueDate.textContent = FormatarData(dueDateValue);
         contentContainer.appendChild(taskText);
         contentContainer.appendChild(dueDate);
     }
     else{
         contentContainer.appendChild(taskText);
     }
+
+    //Se o usuario mudar a data de dentro da tarefa
+    changeDate.addEventListener("change", function() {
+        if(!dueDate){
+            dueDate = document.createElement("p");
+            dueDate.id = "taskDate";
+            contentContainer.appendChild(dueDate);
+        }
+        dueDate.textContent = FormatarData(changeDate.value);
+    });
     
     //adiciona o elemento ao item da lista
     listItem.appendChild(doneTask);
@@ -110,10 +142,5 @@ function AddTask(taskDescription, dueDateValue){
     taskInput.value = '';
     DueDateInput.value = '';
 };
-
-/*
-function ChangeColoMode(){
-    
-};*/
 
 

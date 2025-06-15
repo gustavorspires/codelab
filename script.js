@@ -26,10 +26,27 @@ const themeModeButton = document.getElementById("modo");
 const taskInput = document.getElementById("tarefa");
 const DueDateInput = document.getElementById("data");
 
-//Sign in -------------------------------------------------
+//Auxiliares de persistência
+function obterUsuarios() {
+    const data = localStorage.getItem("usuarios");
+    return data ? JSON.parse(data) : [];
+}
 
+function salvarUsuarios(lista) {
+    localStorage.setItem("usuarios", JSON.stringify(lista));
+}
 
-//Sign up -------------------------------------------------
+function obterUsuarioLogado() {
+    return localStorage.getItem("usuarioLogado");
+}
+
+function definirUsuarioLogado(email) {
+    localStorage.setItem("usuarioLogado", email);
+}
+
+function deslogarUsuario() {
+    localStorage.removeItem("usuarioLogado");
+}
 
 
 //Adiciona eventos ao clicar nos botoes (se existir):
@@ -66,10 +83,62 @@ taskInput.addEventListener("input", function() {
 });
 
 //Sign in Buttons ------------------------------------------
+function fazerLogin() {
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value;
+
+    const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+
+    if (usuarioSalvo && usuarioSalvo.email === email && usuarioSalvo.senha === senha) {
+        localStorage.setItem("usuarioLogado", "true");
+        window.location.href = "index.html";
+    } else {
+        alert("Email ou senha inválidos.");
+    }
+
+    return false;
+}
 
 
 //Sing up Buttons ------------------------------------------
+function criarConta() {
+    const nome = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value;
+    const confirmaSenha = document.getElementById("confirmaSenha").value;
 
+    if (!nome || !email || !senha || !confirmaSenha) {
+        alert("Preencha todos os campos.");
+        return false;
+    }
+
+    if (senha !== confirmaSenha) {
+        alert("As senhas não coincidem.");
+        return false;
+    }
+
+    const usuario = { nome, email, senha };
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+    alert("Conta criada com sucesso!");
+    window.location.href = "signIn.html";
+    return false;
+}
+
+
+//Verificacao de login
+function verificarLogin() {
+    const logado = localStorage.getItem("usuarioLogado");
+    if (logado !== "true") {
+        alert("Você precisa estar logado para acessar esta página.");
+        window.location.href = "signIn.html";
+    }
+}
+
+//Sign out
+function logout() {
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "signIn.html";
+}
 
 //Funcoes dos botoes:
 function FormatarData(dataValue){

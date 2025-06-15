@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
-        <title>Sign up</title>
+        <title>Sign up</title>=
+        <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="index.css">
     </head>
     <body>
         <main>
             <h1>Crie sua conta</h1>
             <p>Cadastre-se e mantenha controle das suas tarefas sem esforço.</p>
-            <form id="cadastro">
+            <form id="cadastro" onsubmit="return criarConta()">
                 <div>
                     Preencha o formulário abaixo para criar sua nova conta
                 </div>
@@ -25,12 +26,12 @@
 
                 <div>
                     <label for="senha">Senha</label>
-                    <input type="text" id="senha" placeholder="Crie uma senha">
+                    <input type="password" id="senha" placeholder="Crie uma senha">
                 </div>
 
                 <div>
                     <label for="confirmaSenha">Confirme sua senha.</label>
-                    <input type="text" id="confirmaSenha" placeholder="Repita a senha acima">
+                    <input type="password" id="confirmaSenha" placeholder="Repita a senha acima">
                 </div>
 
                 <button type="submit">Criar</button>

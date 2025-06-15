@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <title>Login</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="index.css">
     </head>
     <body>
         <main>
             <h1>Bem vindo</h1>
-            <form id="login">
+            <form id="login" onsubmit="return fazerLogin()">
                 <div>Informe seu endereço de email e senha para fazer o login</div>
                 <div>
                     <label for="email">Endereço de email</label>
@@ -15,7 +16,7 @@
                 </div>
                 <div>
                     <label for="senha">Senha</label>
-                    <input type="text" id="senha" placeholder="Insira sua senha">
+                    <input type="password" id="senha" placeholder="Insira sua senha">
                 </div>
                 <button type="submit">Log-in</button>
             </form>

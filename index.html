@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <title>To do list dos cria</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="index.css">
     </head>
-    <body>
+    <body onload="verificarLogin()">
         <header>
             <h1 id="title">To-do List</h1>
         </header>
@@ -12,7 +13,7 @@
 
         <div id="cabecalho">
             <h2 id="nomeDaLista">Minhas tarefas:</h2>
-            <button id="login">Login</button>
+            <button id="logout" onclick="logout()">Logout</button>
             <button id="modo"></button>
         </div>
 

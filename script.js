@@ -26,29 +26,6 @@ const themeModeButton = document.getElementById("modo");
 const taskInput = document.getElementById("tarefa");
 const DueDateInput = document.getElementById("data");
 
-//Auxiliares de persistência
-function obterUsuarios() {
-    const data = localStorage.getItem("usuarios");
-    return data ? JSON.parse(data) : [];
-}
-
-function salvarUsuarios(lista) {
-    localStorage.setItem("usuarios", JSON.stringify(lista));
-}
-
-function obterUsuarioLogado() {
-    return localStorage.getItem("usuarioLogado");
-}
-
-function definirUsuarioLogado(email) {
-    localStorage.setItem("usuarioLogado", email);
-}
-
-function deslogarUsuario() {
-    localStorage.removeItem("usuarioLogado");
-}
-
-
 //Adiciona eventos ao clicar nos botoes (se existir):
 //To-Do list Buttons---------------------------------------
 if(addTaskButton){
@@ -102,12 +79,11 @@ function fazerLogin() {
 
 //Sing up Buttons ------------------------------------------
 function criarConta() {
-    const nome = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const senha = document.getElementById("senha").value;
     const confirmaSenha = document.getElementById("confirmaSenha").value;
 
-    if (!nome || !email || !senha || !confirmaSenha) {
+    if (!email || !senha || !confirmaSenha) {
         alert("Preencha todos os campos.");
         return false;
     }
@@ -117,7 +93,7 @@ function criarConta() {
         return false;
     }
 
-    const usuario = { nome, email, senha };
+    const usuario = {email, senha };
     localStorage.setItem("usuario", JSON.stringify(usuario));
     alert("Conta criada com sucesso!");
     window.location.href = "signIn.html";

@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <title>Login</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="index.css">
-    </head>
-    <body>
-        <main>
-            <h1>Bem vindo</h1>
-            <form id="login" onsubmit="return fazerLogin()">
-                <div>Informe seu endereço de email e senha para fazer o login</div>
-                <div>
-                    <label for="email">Endereço de email</label>
-                    <input type="email" id="email" placeholder="seunome@exemplo.com">
-                </div>
-                <div>
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" placeholder="Insira sua senha">
-                </div>
-                <button type="submit">Log-in</button>
-            </form>
-            <p>Não tem uma conta?</p>
-            <a id="signUpPage" href="signUp.html">Crie sua conta aqui!</a>
-        </main>
-        <script src="script.js"></script>
-    </body>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="login-page">
+    <main id="loginCard">
+        <div class="icon-holder">
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </div>
+
+        <h1>Bem-vindo de volta!</h1>
+        <p>Entre em sua conta para continuar</p>
+
+        <form id="login" onsubmit="return fazerLogin()">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Insira seu email" required>
+
+            <label for="password">Senha</label>
+            <input type="password" id="senha" placeholder="Insira sua senha" required>
+
+            <button type="submit">
+                <i class="fa-solid fa-right-to-bracket button-icon"></i> Entrar
+            </button>
+        </form>
+
+        <div class="signup-link">
+            <p>Não tem uma conta? <a href="signUp.html">Crie uma conta</a></p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>

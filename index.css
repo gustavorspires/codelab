@@ -1,17 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-
-
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     font-family: 'Inter', sans-serif;
     background-color: #aeafaf;
     color: #0c111b;
-
-    /*Kenzo adicionou isso (para mudar de modo escuro para claro)*/
     transition: background 0.2s linear;
 }
 /*To-do list CSS --------------------------------------------------------*/
@@ -19,6 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
 }
 
 .container > * {
@@ -118,7 +114,6 @@ li {
     width: 100%;
     height: 70px;
     align-items: center;
-
     background-color: #b2b2b2;
     color: #161d26;
     border-radius: 7px;
@@ -188,13 +183,267 @@ input[type="checkbox"]:checked + #taskContainer #taskText, input[type="checkbox"
 }
 
 /*Sign In Page CSS -----------------------------------------------------*/
+body.login-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom right, #ecfeff, #dbeafe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
 
+#loginCard {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    max-width: 28rem;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    text-align: center;
+}
 
+#loginCard .icon-holder {
+    margin: 0 auto 1rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #06b6d4;
+    color: white;
+    font-size: 1.25rem;
+}
 
-/*Sign Up Page CSS -----------------------------------------------------*/
+#loginCard h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
 
+#loginCard p {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
 
+#login {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    /* Resetting styles from the to-do list section */
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
 
+#login label {
+    font-weight: 600;
+    color: #374151;
+}
+
+#loginCard input[type="email"],
+#loginCard input[type="password"] {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid #d1d5db;
+    color: #111827;
+    transition: border-color 0.2s ease;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#loginCard input::placeholder {
+    color: #6b7280;
+}
+
+#loginCard input:focus {
+    outline: none;
+    border-color: #06b6d4;
+}
+
+#loginCard button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #06b6d4;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#loginCard button[type="submit"]:hover {
+    background-color: #0891b2;
+}
+
+#loginCard .button-icon {
+    margin-right: 0.5rem;
+}
+
+#loginCard .signup-link {
+    font-size: 0.875rem;
+    margin-top: 1.5rem;
+    color: #4b5563;
+}
+
+#loginCard .signup-link a {
+    color: #06b6d4;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#loginCard .signup-link a:hover {
+    color: #0891b2;
+    text-decoration: underline;
+}
+
+/* Sign Up Page CSS -----------------------------------------------------*/
+
+body.auth-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom right, #ecfeff, #dbeafe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-card {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    max-width: 28rem;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.icon-holder {
+    margin: 0 auto 1rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #06b6d4;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.auth-card h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.auth-card p {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+#signup-form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#signup-form label {
+    font-weight: 600;
+    color: #374151;
+}
+
+#signup-form input {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid #d1d5db;
+    color: #111827;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+#signup-form input::placeholder {
+    color: #9ca3af;
+}
+
+#signup-form input:focus {
+    outline: none;
+    border-color: #06b6d4;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+}
+
+#signup-form button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #06b6d4;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#signup-form button[type="submit"]:hover {
+    background-color: #0891b2;
+}
+
+.button-icon {
+    margin-right: 0.5rem;
+}
+
+.bottom-link {
+    font-size: 0.875rem;
+    margin-top: 1.5rem;
+    color: #4b5563;
+}
+
+.bottom-link a {
+    color: #06b6d4;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.bottom-link a:hover {
+    color: #0891b2;
+    text-decoration: underline;
+}
+
+/* Páginas de login não terão dark mode. */
 /*Modo Dark Mode----------------------------------------------------------------------------------------------*/
 
 /*To-do list CSS --------------------------------------------------------*/
@@ -263,10 +512,3 @@ body.dark-mode li {
 }
 
 /*Para colocar no modo escuro, basta colocar body.dark-mode antes do elemento*/
-/*Sign In Page CSS -----------------------------------------------------*/
-
-
-
-/*Sign Up Page CSS -----------------------------------------------------*/
-
-
